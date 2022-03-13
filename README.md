@@ -43,3 +43,18 @@ This is a repository intended to serve common packages that can be used in our p
 12 directories, 20 files
 
 ```
+
+# How to use 
+
+- Add this command
+```bash
+go env -w GOPRIVATE=github.com/piqba
+```
+- add into you ~/.gitconfig
+
+```bash
+[url "https://<USERNAME>:<TOKEN>@github.com/"]
+insteadOf = https://github.com/
+```
+
+Then use `go get github.com/piqba/common`
