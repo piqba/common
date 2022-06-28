@@ -1,5 +1,6 @@
 package jwt
 
+// TODO: Improve this test
 import (
 	"errors"
 	"testing"
@@ -8,7 +9,9 @@ import (
 var (
 	hmacSecret = "secret"
 	// For testing propourse, in the future this token could be expired
-	tokenToVerify = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjE1MGQ1YTMwZDk5MzFhYmJkNmFkOTQiLCJpZCI6IjYyMTUwZDVhMzBkOTkzMWFiYmQ2YWQ5NCIsImZpcnN0TmFtZSI6IkFkbWluIiwibGFzdE5hbWUiOiJTeXN0ZW0iLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsInJvbGVzIjpbeyJyb2xlIjoiNjIxNTJlN2Q2ZjgwZDkzYWNlOThhNWY1Iiwic3BhY2UiOiI2MjE1MmU3YTZmODBkOTNhY2U5OGE1ZjMifV0sIm1ldGFkYXRhIjp7fSwibGFuZ3VhZ2UiOiJlcyIsImZ1bGxOYW1lIjoiQWRtaW4gU3lzdGVtIiwib25ib2FyZGluZ0NvbXBsZXRlZCI6ZmFsc2UsInBlcm1pc3Npb25zIjpbIkFETUlOIl0sInNlY3VyZVNwYWNlUGF0aCI6W10sImlhdCI6MTY0NTgyMDIwMSwiZXhwIjoxNjQ1ODI3NDAxfQ.zyQ5XWjm8hpBw2Ud0L1DDMSCU__SM5CS207zrYI5vYY"
+	tokenToVerify = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQi10sImlhdCI6MTY0NzUyNzcxNywiZXhwIjoxNjQ3NjE0MTE3fQ.o9XL3dlEiZM3A9LM8sNPPj5TXXQ_iGBC7UCvwBb9sNI"
+
+	newToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJYzc2ZGZiYTIzZWY0MWJiZDBlIl0sImlhdCI6MTY0NjI1MTg5MH0.pkUpA1mCRx0KHiuheQYHrJjqGxdGb_IMxpmeys6RCTk"
 
 	tokenDataTable = []struct {
 		name          string
@@ -18,7 +21,7 @@ var (
 	}{
 		{
 			name:          "valid-token",
-			token:         tokenToVerify,
+			token:         newToken,
 			errorExpected: false,
 			errorMessage:  "no invalid token",
 		},

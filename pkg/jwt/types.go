@@ -1,6 +1,39 @@
 package jwt
 
-import "errors"
+import (
+	"errors"
+	"github.com/golang-jwt/jwt"
+)
+
+type MapClaims jwt.MapClaims
+
+// JWT is the struct for parse json from token ms-auth (new & old)
+type JWT struct {
+	BsonId              string        `json:"_id"`
+	Id                  string        `json:"id"`
+	FirstName           string        `json:"firstName"`
+	LastName            string        `json:"lastName"`
+	Email               string        `json:"email"`
+	Phone               string        `json:"phone"`
+	Roles               []interface{} `json:"roles"`
+	Metadata            Metadata      `json:"metadata"`
+	Language            string        `json:"language"`
+	FullName            string        `json:"fullName"`
+	IdNumber            string        `json:"idNumber"`
+	OnboardingCompleted bool          `json:"onboardingCompleted"`
+	Permissions         []string      `json:"permissions"`
+	Space               Space         `json:"space"`
+	Iat                 int           `json:"iat"`
+}
+type Metadata struct {
+}
+type Space struct {
+	Id              string   `json:"_id"`
+	Identifier      string   `json:"identifier"`
+	IsPublicSpace   bool     `json:"isPublicSpace"`
+	IsRootSpace     bool     `json:"isRootSpace"`
+	SecureSpacePath []string `json:"secureSpacePath"`
+}
 
 var (
 	// For HMAC signing method, the key can be any []byte. It is recommended to generate

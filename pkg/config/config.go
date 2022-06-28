@@ -3,6 +3,7 @@ package config
 import (
 	"github.com/spf13/viper"
 	"os"
+	"strings"
 )
 
 // LoadConfig load the config file from `path`, `name` and filetype
@@ -19,6 +20,10 @@ func LoadConfig(path, name, filetype string) (*viper.Viper, error) {
 			return nil, err
 		}
 	}
+	// logic for get ENV_VARS
+	vp.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
+	vp.SetEnvPrefix("APP")
+	vp.AutomaticEnv()
 
 	return vp, nil
 }

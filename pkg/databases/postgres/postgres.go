@@ -3,18 +3,17 @@ package postgres
 import (
 	"context"
 	"fmt"
-	"time"
-
+	_ "github.com/jackc/pgconn"
+	_ "github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
+	_ "github.com/jackc/pgx/v4/stdlib"
 	"github.com/piqba/common/pkg/databases"
-
-	_ "github.com/jackc/pgx/v4/stdlib" // load pgx driver for Postgresql
-	"github.com/jmoiron/sqlx"
+	"time"
 )
 
 // NewPostgresDb func for connection to Postgresql database.
 func NewPostgresDb(option databases.PgOptions) (*sqlx.DB, error) {
-	db, err := sqlx.Connect("pgx", option.DbURI)
+	db, err := sqlx.Open("pgx", option.DbURI)
 	if err != nil {
 		return nil, fmt.Errorf("error, not connected to database, %w", err)
 	}

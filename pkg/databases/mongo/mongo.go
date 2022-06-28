@@ -2,9 +2,8 @@ package mgo
 
 import (
 	"context"
-	"sync"
-
 	"github.com/piqba/common/pkg/config"
+	"sync"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

@@ -1,12 +1,9 @@
 package elasticsearch
 
 import (
+	"github.com/piqba/common/pkg/config"
 	"strings"
 	"time"
-
-	"github.com/cenkalti/backoff/v4"
-	"github.com/elastic/go-elasticsearch/v7"
-	"github.com/piqba/common/pkg/config"
 )
 
 func NewElasticDb(elasticUrls ...string) (*elasticsearch.Client, error) {

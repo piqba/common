@@ -2,14 +2,15 @@ package logger
 
 import "go.uber.org/zap"
 
-type KVLog map[string]interface{}
+// F minimal key value type for a field representation in our logger.Logger interface
+type F map[string]interface{}
 
 type Logger interface {
-	Info(message string, fields ...KVLog)
-	Debug(message string, fields ...KVLog)
-	Error(message string, fields ...KVLog)
-	Fatal(message string, fields ...KVLog)
-	Warn(message string, fields ...KVLog)
+	Info(message string, fields ...F)
+	Debug(message string, fields ...F)
+	Error(message string, fields ...F)
+	Fatal(message string, fields ...F)
+	Warn(message string, fields ...F)
 	Sync() error
 }
 

@@ -4,12 +4,11 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
+	"github.com/pkg/errors"
 	"net/http"
 	"os"
 	"os/signal"
 	"time"
-
-	"github.com/pkg/errors"
 
 	log "github.com/piqba/common/pkg/logger"
 )
@@ -71,7 +70,7 @@ func NewServerSSL(host string, port int, mux http.Handler, logger *log.AppLogger
 func (srv *server) Start() {
 	srv.log.Info(
 		" starting server...",
-		//log.KVLog{"ID": "hola"}, // this and example
+		//log.F{"ID": "hola"}, // this and example
 	)
 
 	go func() {
