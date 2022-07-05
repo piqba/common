@@ -1,6 +1,8 @@
 package elasticsearch
 
 import (
+	"github.com/cenkalti/backoff/v4"
+	"github.com/elastic/go-elasticsearch/v7"
 	"github.com/piqba/common/pkg/config"
 	"strings"
 	"time"

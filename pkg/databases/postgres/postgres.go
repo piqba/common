@@ -3,12 +3,14 @@ package postgres
 import (
 	"context"
 	"fmt"
+	"time"
+
 	_ "github.com/jackc/pgconn"
 	_ "github.com/jackc/pgx/v4"
 	"github.com/jackc/pgx/v4/pgxpool"
 	_ "github.com/jackc/pgx/v4/stdlib"
+	"github.com/jmoiron/sqlx"
 	"github.com/piqba/common/pkg/databases"
-	"time"
 )
 
 // NewPostgresDb func for connection to Postgresql database.

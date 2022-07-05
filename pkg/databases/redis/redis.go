@@ -2,6 +2,7 @@ package redis
 
 import (
 	"context"
+	"github.com/go-redis/redis/v8"
 	"github.com/piqba/common/pkg/databases"
 	"runtime"
 	"sync"
